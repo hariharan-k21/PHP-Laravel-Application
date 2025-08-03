@@ -46,9 +46,9 @@ Route::middleware(['preventBack'])
                         Route::get('/checkout/failed/', [CheckoutController::class, 'failed'])->name('checkout.failed');
                         Route::get('/checkout/{transaction:invoice_number}', [CheckoutController::class, 'index'])->name('checkout.index');
                         Route::get('/checkout/proccess/{travel_package:slug}', [CheckoutController::class, 'redirectTo'])
-                            ->name('checkout.proccess');
+                            ->name('checkout.proccess.redirect');
                         Route::post('/checkout/proccess/{travel_package:slug}', [CheckoutController::class, 'proccess'])
-                            ->name('checkout.proccess');
+                            ->name('checkout.proccess.submit');
                         Route::post('/checkout/create/{transaction:invoice_number}', [CheckoutController::class, 'create'])
                             ->name('checkout.create');
                         Route::delete('/checkout/remove/{transaction:invoice_number}/{transaction_detail:username}', [CheckoutController::class, 'delete'])
